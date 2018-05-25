@@ -1,21 +1,40 @@
 package com.tech_crunch.hackaton.vabama
 
-import android.arch.lifecycle.Observer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.tech_crunch.hackaton.vabama.adapter.CarAdapter
-import com.tech_crunch.hackaton.vabama.data.Car
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentPagerAdapter
+import com.tech_crunch.hackaton.vabama.fragment.PageFragment
+import com.tech_crunch.hackaton.vabama.data.*
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
 
-    val carDao = VbmApp.app.appDatabase.carDao()
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        carDao.getAll().observe(this,
-                Observer<List<Car>> { t -> if (t != null) listView.adapter = CarAdapter(t) })
+        viewPager.adapter = MyFragmentPagerAdapter(supportFragmentManager)
     }
+
+    private inner class MyFragmentPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+
+        override fun getItem(position: Int): Fragment {
+            return when (position) {
+                0 -> PageFragment.newInstance(ALL_STATUS)
+                1 -> PageFragment.newInstance(NEED_PAINTING_STATUS)
+                2 -> PageFragment.newInstance(NEED_REPAIR_STATUS)
+                3 -> PageFragment.newInstance(NEED_CLEANING_STATUS)
+                else -> PageFragment.newInstance(ALL_STATUS)
+            }
+        }
+
+        override fun getCount(): Int {
+            return 4
+        }
+
+    }
+
 }

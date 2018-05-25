@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.tech_crunch.hackaton.vabama.MainActivity">
 
-    <ListView
-        android:id="@+id/listView"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

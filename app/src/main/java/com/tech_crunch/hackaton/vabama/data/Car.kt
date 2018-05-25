@@ -30,6 +30,8 @@ interface CarDao {
 data class Car(@PrimaryKey(autoGenerate = true) val id: Long, val plateNumber: String,
                val title: String, val status: String)
 
-val OK_STATUS = "OK"
-val NEED_CLEANING_STATUS = "NEED_CLEANING"
-val NEED_REPAIR_STATUS = "NEED_REPAIR"
+const val OK_STATUS = "OK"
+const val NEED_CLEANING_STATUS = "NEED_CLEANING"
+const val NEED_REPAIR_STATUS = "NEED_REPAIR"
+const val NEED_PAINTING_STATUS = "NEED_PAINTING"
+const val ALL_STATUS = "ALL"

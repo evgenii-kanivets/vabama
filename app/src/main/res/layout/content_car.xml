@@ -9,8 +9,9 @@
     tools:showIn="@layout/activity_car">
 
     <LinearLayout
+        android:id="@+id/topLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="16dp">
 
@@ -22,7 +23,7 @@
 
             <TextView
                 android:id="@+id/tvTitle"
-                style="@android:style/TextAppearance.Material.Body2"
+                style="@android:style/TextAppearance.Material.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Title" />
@@ -45,5 +46,35 @@
             tools:src="@drawable/car1" />
 
     </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/topLayout">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/card_mileage"
+                layout="@layout/view_info_card" />
+
+            <include
+                android:id="@+id/card_rent"
+                layout="@layout/view_info_card" />
+
+            <include
+                android:id="@+id/card_repair"
+                layout="@layout/view_info_card" />
+
+            <include
+                android:id="@+id/card_maintenance"
+                layout="@layout/view_info_card" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
 
 </android.support.constraint.ConstraintLayout>

@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.TextView
 import com.tech_crunch.hackaton.vabama.R
 import com.tech_crunch.hackaton.vabama.VbmApp
 import com.tech_crunch.hackaton.vabama.data.Car
@@ -38,6 +40,23 @@ class CarActivity : BaseBackActivity() {
 
         val icon = BitmapFactory.decodeResource(resources, car.image)
         ImageUtils.displayRoundedPicture(this, icon, ivImage)
+
+        initStatistics(car)
+    }
+
+    private fun initStatistics(car: Car) {
+        initCard(findViewById(R.id.card_mileage), car.mileage.toString(), "km")
+        initCard(findViewById(R.id.card_rent), car.rent.toString(), "Rent")
+        initCard(findViewById(R.id.card_repair), car.repair.toString(), "Repair")
+        initCard(findViewById(R.id.card_maintenance), car.maintenance.toString(), "Maintenance")
+    }
+
+    private fun initCard(view: View, title: String, subtitle: String) {
+        val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
+        val tvSubtitle = view.findViewById<TextView>(R.id.tvSubtitle)
+
+        tvTitle.text = title
+        tvSubtitle.text = subtitle
     }
 
     companion object {

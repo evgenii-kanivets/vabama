@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey"
     android:orientation="vertical"
-    tools:context="com.tech_crunch.hackaton.vabama.MainActivity">
+    tools:context="com.tech_crunch.hackaton.vabama.activity.MainActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"

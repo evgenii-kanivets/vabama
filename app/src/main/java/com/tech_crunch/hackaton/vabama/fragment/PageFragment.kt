@@ -37,10 +37,10 @@ class PageFragment : Fragment() {
 
         if (status == ALL_STATUS) {
             carDao.getAll().observe(this,
-                    Observer<List<Car>> { t -> if (t != null) listView.adapter = CarAdapter(t) })
+                    Observer<List<Car>> { t -> if (t != null) listView.adapter = CarAdapter(activity!!, t) })
         } else {
             carDao.getAllWithStatus(status).observe(this,
-                    Observer<List<Car>> { t -> if (t != null) listView.adapter = CarAdapter(t) })
+                    Observer<List<Car>> { t -> if (t != null) listView.adapter = CarAdapter(activity!!, t) })
         }
     }
 

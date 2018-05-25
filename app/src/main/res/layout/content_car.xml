@@ -48,6 +48,7 @@
     </LinearLayout>
 
     <HorizontalScrollView
+        android:id="@+id/stats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/topLayout">
@@ -76,5 +77,29 @@
         </LinearLayout>
 
     </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/stats">
+
+        <ImageView
+            android:id="@+id/ivStatusImage"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            tools:src="@drawable/ic_clean" />
+
+        <TextView
+            android:id="@+id/tvStatusTitle"
+            style="@android:style/TextAppearance.Material.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            tools:text="Needs cleaning" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -10,8 +10,7 @@ import android.view.View
 import android.widget.TextView
 import com.tech_crunch.hackaton.vabama.R
 import com.tech_crunch.hackaton.vabama.VbmApp
-import com.tech_crunch.hackaton.vabama.data.Car
-import com.tech_crunch.hackaton.vabama.data.getStatus
+import com.tech_crunch.hackaton.vabama.data.*
 import com.tech_crunch.hackaton.vabama.utils.ImageUtils
 
 import kotlinx.android.synthetic.main.activity_car.*
@@ -42,6 +41,7 @@ class CarActivity : BaseBackActivity() {
         ImageUtils.displayRoundedPicture(this, icon, ivImage)
 
         initStatistics(car)
+        initStatus(car.status)
     }
 
     private fun initStatistics(car: Car) {
@@ -57,6 +57,18 @@ class CarActivity : BaseBackActivity() {
 
         tvTitle.text = title
         tvSubtitle.text = subtitle
+    }
+
+    private fun initStatus(status: String) {
+        val res = when (status) {
+            OK_STATUS -> R.drawable.ic_histo
+            NEED_PAINTING_STATUS -> R.drawable.ic_paint
+            NEED_REPAIR_STATUS -> R.drawable.ic_repair
+            NEED_CLEANING_STATUS -> R.drawable.ic_clean
+            else -> R.drawable.ic_histo
+        }
+        ivStatusImage.setImageResource(res)
+        tvStatusTitle.text = getStatus(status)
     }
 
     companion object {

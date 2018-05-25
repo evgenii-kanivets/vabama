@@ -6,10 +6,9 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.tech_crunch.hackaton.vabama.R
-import com.tech_crunch.hackaton.vabama.data.Car
 import com.tech_crunch.hackaton.vabama.utils.ImageUtils
 import android.graphics.BitmapFactory
-import android.graphics.Bitmap
+import com.tech_crunch.hackaton.vabama.data.*
 
 
 /**
@@ -26,7 +25,7 @@ class CarAdapter(private val cars: List<Car>) : BaseAdapter() {
         val car = cars[position]
 
         view!!.findViewById<TextView>(R.id.tvTitle).text = car.title
-        view.findViewById<TextView>(R.id.tvStatus).text = car.status
+        view.findViewById<TextView>(R.id.tvStatus).text = getStatus(car.status)
         val imageView = view.findViewById<ImageView>(R.id.ivImage)
 
         val icon = BitmapFactory.decodeResource(parent!!.context.resources, car.image)
@@ -45,6 +44,18 @@ class CarAdapter(private val cars: List<Car>) : BaseAdapter() {
 
     override fun getCount(): Int {
         return cars.size
+    }
+
+    private fun getStatus(status: String): String {
+        return when (status) {
+            OK_STATUS -> "All clear"
+            NEED_PAINTING_STATUS -> "Needs painting"
+            NEED_REPAIR_STATUS -> "Needs repaire"
+            NEED_CLEANING_STATUS -> "Needs clean"
+            else -> {
+                return "Unknown"
+            }
+        }
     }
 
 }

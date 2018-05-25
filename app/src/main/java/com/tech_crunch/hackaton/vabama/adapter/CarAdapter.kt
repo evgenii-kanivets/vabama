@@ -56,16 +56,4 @@ class CarAdapter(private val activity: FragmentActivity, private val cars: List<
         return cars.size
     }
 
-    private fun getStatus(status: String): String {
-        return when (status) {
-            OK_STATUS -> "All clear"
-            NEED_PAINTING_STATUS -> "Needs painting"
-            NEED_REPAIR_STATUS -> "Needs repaire"
-            NEED_CLEANING_STATUS -> "Needs clean"
-            else -> {
-                return "Unknown"
-            }
-        }
-    }
-
 }

@@ -38,3 +38,15 @@ const val NEED_CLEANING_STATUS = "NEED_CLEANING"
 const val NEED_REPAIR_STATUS = "NEED_REPAIR"
 const val NEED_PAINTING_STATUS = "NEED_PAINTING"
 const val ALL_STATUS = "ALL"
+
+fun getStatus(status: String): String {
+    return when (status) {
+        OK_STATUS -> "All clear"
+        NEED_PAINTING_STATUS -> "Needs painting"
+        NEED_REPAIR_STATUS -> "Needs repaire"
+        NEED_CLEANING_STATUS -> "Needs clean"
+        else -> {
+            return "Unknown"
+        }
+    }
+}

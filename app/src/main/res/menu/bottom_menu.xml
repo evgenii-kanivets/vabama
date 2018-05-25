@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/item_all"
+        android:icon="@drawable/ic_histo"
+        android:title="All" />
+    <item
+        android:id="@+id/item_painting"
+        android:icon="@drawable/ic_paint"
+        android:title="Paint" />
+    <item
+        android:id="@+id/item_repair"
+        android:icon="@drawable/ic_repair"
+        android:title="Repair" />
+    <item
+        android:id="@+id/item_cleaning"
+        android:icon="@drawable/ic_clean"
+        android:title="Clean" />
+
+</menu>

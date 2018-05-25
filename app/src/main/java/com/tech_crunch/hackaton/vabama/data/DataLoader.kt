@@ -18,6 +18,7 @@ object DataLoader {
         carDao.insert(Car(7, "MD7012TZ", "Ford C1", NEED_CLEANING_STATUS))
         carDao.insert(Car(8, "MD6212TZ", "Ferrari Megan", NEED_PAINTING_STATUS))
         carDao.insert(Car(9, "MD7112TZ", "Pojo Megan", NEED_PAINTING_STATUS))
+        carDao.insert(Car(10, "TR7112TZ", "Chloe Megan", NEED_PAINTING_STATUS))
     }
 
 }

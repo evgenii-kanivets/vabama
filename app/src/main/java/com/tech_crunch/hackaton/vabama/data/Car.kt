@@ -31,7 +31,7 @@ interface CarDao {
 
 @Entity
 data class Car(@PrimaryKey(autoGenerate = true) val id: Long, val plateNumber: String,
-               val title: String, val status: String)
+               val title: String, val image: Int, val status: String)
 
 const val OK_STATUS = "OK"
 const val NEED_CLEANING_STATUS = "NEED_CLEANING"

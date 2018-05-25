@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.tech_crunch.hackaton.vabama.R
 import com.tech_crunch.hackaton.vabama.VbmApp
 import com.tech_crunch.hackaton.vabama.adapter.CarAdapter
+import com.tech_crunch.hackaton.vabama.data.ALL_STATUS
 import com.tech_crunch.hackaton.vabama.data.Car
 import kotlinx.android.synthetic.main.fragment_page.*
 
@@ -19,7 +20,7 @@ class PageFragment : Fragment() {
 
     private val carDao = VbmApp.app.appDatabase.carDao()
 
-    lateinit var status: String
+    private lateinit var status: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +35,13 @@ class PageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        carDao.getAll().observe(this,
-                Observer<List<Car>> { t -> if (t != null) listView.adapter = CarAdapter(t) })
+        if (status == ALL_STATUS) {
+            carDao.getAll().observe(this,
+                    Observer<List<Car>> { t -> if (t != null) listView.adapter = CarAdapter(t) })
+        } else {
+            carDao.getAllWithStatus(status).observe(this,
+                    Observer<List<Car>> { t -> if (t != null) listView.adapter = CarAdapter(t) })
+        }
     }
 
     companion object {

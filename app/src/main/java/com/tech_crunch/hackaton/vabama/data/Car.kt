@@ -12,6 +12,9 @@ interface CarDao {
     @Query("SELECT * FROM car")
     fun getAll(): LiveData<List<Car>>
 
+    @Query("SELECT * FROM car WHERE status = :status")
+    fun getAllWithStatus(status: String): LiveData<List<Car>>
+
     @Query("SELECT * FROM car WHERE id = :id")
     fun getById(id: Long): Car
 

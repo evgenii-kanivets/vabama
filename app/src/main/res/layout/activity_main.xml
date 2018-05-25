@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey"
     android:orientation="vertical"
     tools:context="com.tech_crunch.hackaton.vabama.MainActivity">
 
@@ -12,6 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#5C6979" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomNavigationView"

@@ -7,4 +7,8 @@
     <color name="icon_sel_color">#4886FF</color>
     <color name="grey">#EEEEEE</color>
     <color name="white">#ffffff</color>
+    <color name="green">#40C54A</color>
+    <color name="dark_green">#30A54A</color>
+    <color name="blue">#4886FF</color>
+    <color name="dark_blue">#4886BB</color>
 </resources>

@@ -4,13 +4,15 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentPagerAdapter
 import android.view.View
 import android.widget.TextView
+import android.support.v4.app.FragmentManager
 import com.tech_crunch.hackaton.vabama.R
 import com.tech_crunch.hackaton.vabama.VbmApp
 import com.tech_crunch.hackaton.vabama.data.*
+import com.tech_crunch.hackaton.vabama.fragment.ImageFragment
 import com.tech_crunch.hackaton.vabama.utils.ImageUtils
 
 import kotlinx.android.synthetic.main.activity_car.*
@@ -42,6 +44,8 @@ class CarActivity : BaseBackActivity() {
 
         initStatistics(car)
         initStatus(car.status)
+
+        viewPager.adapter = MyFragmentPagerAdapter(supportFragmentManager)
     }
 
     private fun initStatistics(car: Car) {
@@ -79,6 +83,24 @@ class CarActivity : BaseBackActivity() {
             val intent = Intent(context, CarActivity::class.java)
             intent.putExtra(KEY_CAR_ID, carId)
             return intent
+        }
+
+    }
+
+    private inner class MyFragmentPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+
+        override fun getItem(position: Int): Fragment {
+            return when (position) {
+                0 -> ImageFragment.newInstance(R.drawable.domage)
+                1 -> ImageFragment.newInstance(R.drawable.toyota)
+                2 -> ImageFragment.newInstance(R.drawable.domage)
+                3 -> ImageFragment.newInstance(R.drawable.toyota)
+                else -> ImageFragment.newInstance(R.drawable.domage)
+            }
+        }
+
+        override fun getCount(): Int {
+            return 4
         }
 
     }

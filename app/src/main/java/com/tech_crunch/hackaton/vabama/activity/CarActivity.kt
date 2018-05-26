@@ -81,6 +81,15 @@ class CarActivity : BaseBackActivity() {
             })
             dialog.show()
         }
+
+        if (car.status == CLEANING_STATUS || car.status == REPAIRING_STATUS
+                || car.status == PAINTING_STATUS || car.status == OK_STATUS) {
+            btnAction.visibility = View.GONE
+            viewPager.visibility = View.GONE
+        } else {
+            btnAction.visibility = View.VISIBLE
+            viewPager.visibility = View.VISIBLE
+        }
     }
 
     private fun initStatistics(car: Car) {

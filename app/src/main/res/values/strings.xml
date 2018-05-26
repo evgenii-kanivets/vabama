@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VaBaMa</string>
+    <string name="app_name">G - Scan</string>
     <string name="title_activity_car">CarActivity</string>
     <string name="title_activity_estimation">EstimationActivity</string>
 </resources>

@@ -21,6 +21,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="horizontal"
             android:padding="16dp">
 
@@ -43,11 +44,11 @@
                     style="@android:style/TextAppearance.Material.Body2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="18sp"
                     tools:text="Title" />
 
                 <TextView
                     android:id="@+id/tvStatus"
-                    style="@android:style/TextAppearance.Material.Body1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -57,8 +58,8 @@
 
             <ImageView
                 android:id="@+id/ivButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/circle_background"
                 android:src="@drawable/ic_forward" />

@@ -100,7 +100,7 @@ class CarActivity : BaseBackActivity() {
         initCard(findViewById(R.id.card_mileage), car.mileage.toString(), "km")
         initCard(findViewById(R.id.card_rent), car.rent.toString(), "Rent")
         initCard(findViewById(R.id.card_repair), car.repair.toString(), "Repair")
-        initCard(findViewById(R.id.card_maintenance), car.maintenance.toString(), "Maintenance")
+        initCard(findViewById(R.id.card_maintenance), car.maintenance.toString(), "Mainten.")
     }
 
     private fun initCard(view: View, title: String, subtitle: String) {

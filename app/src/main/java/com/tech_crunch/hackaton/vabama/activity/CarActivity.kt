@@ -49,7 +49,12 @@ class CarActivity : BaseBackActivity() {
         viewPager.adapter = MyFragmentPagerAdapter(supportFragmentManager)
 
         btnAction.setOnClickListener {
-            val dialog = WdywDialog(this)
+            val dialog = WdywDialog(this, object : WdywDialog.OnValidListener {
+                override fun onValid() {
+                    startEstimationActivity()
+                }
+
+            })
             dialog.show()
         }
     }
@@ -81,9 +86,14 @@ class CarActivity : BaseBackActivity() {
         tvStatusTitle.text = getStatus(status)
     }
 
+    private fun startEstimationActivity() {
+        startActivityForResult(EstimationActivity.newIntent(this), REQUEST_ESTIMATION)
+    }
+
     companion object {
 
         private const val KEY_CAR_ID = "key_car_id"
+        private const val REQUEST_ESTIMATION = 1
 
         fun newInstance(context: Context, carId: Int): Intent {
             val intent = Intent(context, CarActivity::class.java)

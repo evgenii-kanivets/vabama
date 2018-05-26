@@ -13,4 +13,6 @@
     <color name="dark_blue">#4886BB</color>
     <color name="purple">#6556E5</color>
     <color name="dark_purple">#8956E5</color>
+    <color name="red">#FF4949</color>
+    <color name="dark_red">#AA4949</color>
 </resources>

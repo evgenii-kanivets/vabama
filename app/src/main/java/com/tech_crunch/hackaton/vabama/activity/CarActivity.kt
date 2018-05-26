@@ -86,9 +86,13 @@ class CarActivity : BaseBackActivity() {
                 || car.status == PAINTING_STATUS || car.status == OK_STATUS) {
             btnAction.visibility = View.GONE
             viewPager.visibility = View.GONE
+            cardInProgress.visibility = View.VISIBLE
+            ivStatusImageInProgress.setImageResource(getRes(car.status))
+            tvStatusTitleInProgress.text = getStatus(car.status)
         } else {
             btnAction.visibility = View.VISIBLE
             viewPager.visibility = View.VISIBLE
+            cardInProgress.visibility = View.GONE
         }
     }
 
@@ -108,15 +112,16 @@ class CarActivity : BaseBackActivity() {
     }
 
     private fun initStatus(status: String) {
-        val res = when (status) {
-            OK_STATUS -> R.drawable.ic_histo
-            NEED_PAINTING_STATUS -> R.drawable.ic_paint
-            NEED_REPAIR_STATUS -> R.drawable.ic_repair
-            NEED_CLEANING_STATUS -> R.drawable.ic_clean
-            else -> R.drawable.ic_histo
-        }
-        ivStatusImage.setImageResource(res)
+        ivStatusImage.setImageResource(getRes(status))
         tvStatusTitle.text = getStatus(status)
+    }
+
+    private fun getRes(status: String) = when (status) {
+        OK_STATUS -> R.drawable.ic_histo
+        NEED_PAINTING_STATUS -> R.drawable.ic_paint
+        NEED_REPAIR_STATUS -> R.drawable.ic_repair
+        NEED_CLEANING_STATUS -> R.drawable.ic_clean
+        else -> R.drawable.ic_histo
     }
 
     private fun startEstimationActivity() {

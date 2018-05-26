@@ -1,5 +1,6 @@
 package com.tech_crunch.hackaton.vabama.activity
 
+import android.app.Activity
 import android.arch.lifecycle.Observer
 import android.content.Context
 import android.content.Intent
@@ -23,6 +24,7 @@ import kotlinx.android.synthetic.main.content_car.*
 class CarActivity : BaseBackActivity() {
 
     private val carDao = VbmApp.app.appDatabase.carDao()
+    private lateinit var car: Car
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,10 +42,20 @@ class CarActivity : BaseBackActivity() {
             if (it == null) {
                 finish()
             } else {
+                car = it
                 initViews(it)
             }
         })
+    }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                REQUEST_ESTIMATION -> handleResult()
+            }
+        }
     }
 
     private fun initViews(car: Car) {
@@ -100,6 +112,23 @@ class CarActivity : BaseBackActivity() {
 
     private fun startEstimationActivity() {
         startActivityForResult(EstimationActivity.newIntent(this), REQUEST_ESTIMATION)
+    }
+
+    private fun handleResult() {
+        when (car.status) {
+            NEED_CLEANING_STATUS -> {
+                car.status = CLEANING_STATUS
+                carDao.update(car)
+            }
+            NEED_PAINTING_STATUS -> {
+                car.status = PAINTING_STATUS
+                carDao.update(car)
+            }
+            NEED_REPAIR_STATUS -> {
+                car.status = REPAIRING_STATUS
+                carDao.update(car)
+            }
+        }
     }
 
     companion object {

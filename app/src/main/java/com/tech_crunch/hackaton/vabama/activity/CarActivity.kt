@@ -162,11 +162,11 @@ class CarActivity : BaseBackActivity() {
 
         override fun getItem(position: Int): Fragment {
             return when (position) {
-                0 -> ImageFragment.newInstance(R.drawable.domage)
-                1 -> ImageFragment.newInstance(R.drawable.toyota)
-                2 -> ImageFragment.newInstance(R.drawable.domage)
-                3 -> ImageFragment.newInstance(R.drawable.toyota)
-                else -> ImageFragment.newInstance(R.drawable.domage)
+                0 -> ImageFragment.newInstance(R.drawable.durty)
+                1 -> ImageFragment.newInstance(R.drawable.zoom_in)
+                2 -> ImageFragment.newInstance(R.drawable.toyota_copie)
+                3 -> ImageFragment.newInstance(R.drawable.top_view)
+                else -> ImageFragment.newInstance(R.drawable.durty)
             }
         }
 

@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentManager
 import com.tech_crunch.hackaton.vabama.R
 import com.tech_crunch.hackaton.vabama.VbmApp
 import com.tech_crunch.hackaton.vabama.data.*
+import com.tech_crunch.hackaton.vabama.dialog.WdywDialog
 import com.tech_crunch.hackaton.vabama.fragment.ImageFragment
 import com.tech_crunch.hackaton.vabama.utils.ImageUtils
 
@@ -46,6 +47,11 @@ class CarActivity : BaseBackActivity() {
         initStatus(car.status)
 
         viewPager.adapter = MyFragmentPagerAdapter(supportFragmentManager)
+
+        btnAction.setOnClickListener {
+            val dialog = WdywDialog(this)
+            dialog.show()
+        }
     }
 
     private fun initStatistics(car: Car) {

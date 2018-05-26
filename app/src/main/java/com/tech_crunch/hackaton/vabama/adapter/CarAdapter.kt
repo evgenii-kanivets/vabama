@@ -26,7 +26,7 @@ class CarAdapter(private val activity: FragmentActivity, private val cars: List<
 
         val car = cars[position]
 
-        view!!.findViewById<TextView>(R.id.tvTitle).text = car.title
+        view!!.findViewById<TextView>(R.id.tvTitle).text = car.plateNumber
         view.findViewById<TextView>(R.id.tvStatus).text = getStatus(car.status)
         val imageView = view.findViewById<ImageView>(R.id.ivImage)
 

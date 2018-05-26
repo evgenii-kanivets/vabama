@@ -1,5 +1,6 @@
 package com.tech_crunch.hackaton.vabama.activity
 
+import android.arch.lifecycle.Observer
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -34,7 +35,18 @@ class CarActivity : BaseBackActivity() {
     override fun initViews() {
         super.initViews()
 
-        val car = carDao.getById(intent.getIntExtra(KEY_CAR_ID, -1).toLong())
+        val carLiveData = carDao.getById(intent.getIntExtra(KEY_CAR_ID, -1).toLong())
+        carLiveData.observe(this, Observer<Car> {
+            if (it == null) {
+                finish()
+            } else {
+                initViews(it)
+            }
+        })
+
+    }
+
+    private fun initViews(car: Car) {
         toolbar.title = car.title
 
         tvTitle.text = car.plateNumber

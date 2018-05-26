@@ -22,7 +22,7 @@ object DataLoader {
                 120000, 50, 8, 8))
         carDao.insert(Car(6, "MD6012TZ", "Toyota Prius Blue", R.drawable.car6, NEED_REPAIR_STATUS,
                 140000, 70, 10, 4))
-        carDao.insert(Car(7, "MD7012TZ", "toyota Prius White", R.drawable.car7, NEED_CLEANING_STATUS,
+        carDao.insert(Car(7, "MD7012TZ", "Toyota Prius White", R.drawable.car7, NEED_CLEANING_STATUS,
                 130000, 80, 19, 5))
         carDao.insert(Car(8, "MD6212TZ", "Mercedes Benz C-Class Coupe", R.drawable.car8, NEED_PAINTING_STATUS,
                 100000, 80, 3, 0))
